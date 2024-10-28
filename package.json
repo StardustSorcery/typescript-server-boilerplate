@@ -1,0 +1,62 @@
+{
+  "name": "typescript-server-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start:grpc-server-1": "node ./app/grpc-server-1/build/server.js",
+    "start:grpc-server-1:watch": "watch -p './app/grpc-server-1/build/server.js' -c 'npm run start:grpc-server-1'",
+    "start:rest-server-1": "node ./app/rest-server-1/build/server.js",
+    "start:rest-server-1:watch": "watch -p './app/rest-server-1/build/server.js' -c 'npm run start:rest-server-1'",
+    "build:grpc-server-1": "webpack --config ./app/grpc-server-1/webpack.config.js",
+    "build:grpc-server-1:watch": "webpack --config ./app/grpc-server-1/webpack.config.js --watch",
+    "build:rest-server-1": "webpack --config ./app/rest-server-1/webpack.config.js",
+    "build:rest-server-1:watch": "webpack --config ./app/rest-server-1/webpack.config.js --watch",
+    "dev:grpc-server-1": "npm run start:grpc-server-1:watch & npm run build:grpc-server-1:watch",
+    "dev:rest-server-1": "npm run start:rest-server-1:watch & npm run build:rest-server-1:watch",
+    "test": "npm run test:app && npm run test:domain && npm run test:infra && npm run lib && npm run usecase",
+    "test:app": "npm run test:app:grpc-server-1",
+    "test:app:grpc-server-1": "jest --config=./app/grpc-server-1/jest.config.ts",
+    "test:domain": "jest --config=./src/domain/jest.config.ts",
+    "test:infra": "jest --config=./src/infra/jest.config.ts",
+    "test:lib": "jest --config=./src/lib/jest.config.ts",
+    "test:usecase": "jest --config=./src/usecase/jest.config.ts",
+    "prettier": "prettier --log-level=warn --write .",
+    "prettier:check": "prettier --log-level=warn --check ."
+  },
+  "keywords": [],
+  "author": "Stardust Sorcery",
+  "license": "MIT",
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@types/express": "^5.0.0",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^22.5.2",
+    "glob": "^11.0.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.3.3",
+    "terser-webpack-plugin": "^5.3.10",
+    "ts-jest": "^29.2.5",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.10",
+    "tsconfig-paths-webpack-plugin": "^4.1.0",
+    "typescript": "^5.5.4",
+    "watch-cli": "^0.2.3",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.12.0",
+    "@stardustsorcery/proto-boilerplate": "github:StardustSorcery/proto-boilerplate#v1.0.2",
+    "express": "^4.21.1",
+    "mongodb": "^6.9.0",
+    "reflect-metadata": "^0.2.2",
+    "tsyringe": "^4.8.0",
+    "zod": "^3.23.8"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    /* Modules */
+    "rootDir": "../",                                    /* Specify the root folder within your source files. */
+    "baseUrl": "../",                                    /* Specify the base directory to resolve non-relative module names. */
+    "paths": {
+      "@/domain/*": ["domain/main/*"],
+      "@/lib/*": ["lib/main/*"]
+    },                                                   /* Specify a set of entries that re-map imports to additional lookup locations. */
+  },
+  "include": [
+    "../lib/**/*",
+    "./**/*",
+  ],
+  "exclude": ["../../node_modules"]
+}

@@ -1,0 +1,12 @@
+README
+LICENSE
+
+package.json
+package-lock.json
+
+tsconfig*.json
+jest.config.ts
+
+.vscode/
+
+docker-compose.yaml

@@ -1,0 +1,30 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    /* Projects */
+    "incremental": true,                                 /* Save .tsbuildinfo files to allow for incremental compilation of projects. */
+    "composite": false,                                  /* Enable constraints that allow a TypeScript project to be used with project references. */
+
+    /* Modules */
+    "rootDir": "./",                                     /* Specify the root folder within your source files. */
+    "baseUrl": "./",                                     /* Specify the base directory to resolve non-relative module names. */
+    "paths": {
+      "@/domain/*": ["src/domain/main/*"],
+      "@/infra/*": ["src/infra/main/*"],
+      "@/usecase/*": ["src/usecase/main/*"],
+      "@/lib/*": ["src/lib/main/*"]
+    },                                                   /* Specify a set of entries that re-map imports to additional lookup locations. */
+
+    /* Emit */
+    "outDir": "./dist",                                  /* Specify an output folder for all emitted files. */
+  },
+  "include": [
+    "./app/**/*",
+    "./src/**/*",
+  ],
+  "exclude": ["node_modules"],
+  "references": [
+    {"path": "./app/grpc-server-1/tsconfig.json"},
+    {"path": "./src/tsconfig.json"}
+  ]
+}
