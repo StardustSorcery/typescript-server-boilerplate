@@ -20,6 +20,7 @@
     "test": "npm run test:app && npm run test:domain && npm run test:infra && npm run lib && npm run usecase",
     "test:app": "npm run test:app:grpc-server-1",
     "test:app:grpc-server-1": "jest --config=./app/grpc-server-1/jest.config.ts",
+    "test:app:rest-server-1": "jest --config=./app/rest-server-1/jest.config.ts",
     "test:domain": "jest --config=./src/domain/jest.config.ts",
     "test:infra": "jest --config=./src/infra/jest.config.ts",
     "test:lib": "jest --config=./src/lib/jest.config.ts",

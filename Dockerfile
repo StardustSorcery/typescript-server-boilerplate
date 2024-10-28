@@ -14,7 +14,7 @@ RUN npm install --no-progress
 
 # test and build
 COPY . .
-RUN npm run test:${APP}
+RUN npm run test:app:${APP}
 RUN npm run build:${APP}
 
 
